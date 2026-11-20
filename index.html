@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mia Yang Ang | Bioinformatics &amp; Computational Biology</title>
+<meta name="description" content="Mia Yang Ang, PhD: Senior Lecturer at Sunway University. Bioinformatics educator and computational biologist working on microbial genomics, antimicrobial resistance, multi-omics and applied AI.">
+<meta name="theme-color" content="#0f2f6b">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Mia Yang Ang, PhD">
+<meta property="og:description" content="Bioinformatics educator and computational biologist: microbial genomics, antimicrobial resistance, multi-omics and applied AI.">
+<meta property="og:url" content="https://angmiayang.github.io/">
+<meta property="og:image" content="https://angmiayang.github.io/photo.jpg">
+<link rel="canonical" href="https://angmiayang.github.io/">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mia Yang Ang",
+  "alternateName": "Ang Mia Yang",
+  "honorificSuffix": "PhD",
+  "jobTitle": "Senior Lecturer",
+  "description": "Bioinformatics educator and computational biologist working across microbial genomics, multi-omics integration and applied artificial intelligence.",
+  "url": "https://angmiayang.github.io/",
+  "image": "https://angmiayang.github.io/photo.jpg",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Sunway University",
+    "url": "https://sunwayuniversity.edu.my/"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "The University of Tokyo" },
+    { "@type": "CollegeOrUniversity", "name": "University of Malaya" },
+    { "@type": "CollegeOrUniversity", "name": "The National University of Malaysia" }
+  ],
+  "knowsAbout": ["Bioinformatics", "Computational biology", "Microbial genomics", "Antimicrobial resistance", "Genomic epidemiology", "Multi-omics integration", "Precision medicine", "Artificial intelligence in bioinformatics"],
+  "sameAs": [
+    "https://sunwayuniversity.edu.my/jeffrey-cheah-sunway-medical-school/staff-profiles/dr-ang-mia-yang",
+    "https://orcid.org/0000-0003-2709-6754",
+    "https://scholar.google.com/citations?user=Wm4iK6wAAAAJ",
+    "https://www.researchgate.net/profile/Mia-Yang-Ang",
+    "https://www.linkedin.com/in/angmiayang",
+    "https://github.com/angmiayang"
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230f2f6b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='bold' font-size='26' fill='%23f5b700' text-anchor='middle'%3EMY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --navy: #0f2f6b;
+    --blue: #1d5bbf;
+    --blue-soft: #eaf1fc;
+    --blue-line: #c9d8f2;
+    --yellow: #f5b700;
+    --yellow-soft: #fff4cc;
+    --yellow-ink: #7a5800;
+    --ink: #18233a;
+    --muted: #5a6680;
+    --line: #e2e8f2;
+    --bg: #ffffff;
+    --surface: #f6f8fc;
+    --side-text: #c6d3ec;
+    --lift: 0 12px 28px rgba(15, 47, 107, .12);
+    --serif: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    --sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--blue); text-underline-offset: 3px; }
+
+  /* ---------- Layout ---------- */
+  .layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); min-height: 100vh; }
+  .aside {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    padding: 44px 32px 32px;
+    background: var(--navy); color: #fff;
+    scrollbar-width: thin;
+  }
+  main { width: 100%; max-width: 920px; padding: 56px 56px 64px; min-width: 0; }
+
+  /* ---------- Profile (sidebar) ---------- */
+  .photo {
+    width: 168px; height: 168px; display: block;
+    border-radius: 50%; object-fit: cover; object-position: 50% 15%;
+    border: 4px solid var(--yellow);
+    box-shadow: 0 8px 28px rgba(0,0,0,.25);
+    transition: transform .3s ease;
+  }
+  .photo:hover { transform: scale(1.04); }
+  h1 {
+    font-family: var(--serif); font-weight: 600; font-size: 2.1rem; line-height: 1.15;
+    margin: 22px 0 4px; letter-spacing: -0.01em; color: #fff;
+  }
+  .creds { color: var(--yellow); font-size: .88rem; letter-spacing: .06em; margin: 0; font-weight: 500; }
+  .role { margin: 16px 0 0; font-weight: 600; }
+  .links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+  .links a:first-child { grid-column: 1 / -1; }
+  .links a {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255,255,255,.2); border-radius: 999px;
+    background: rgba(255,255,255,.07); color: #fff;
+    font-size: .84rem; text-decoration: none;
+    transition: border-color .2s, background .2s, transform .2s;
+  }
+  .links a:hover { border-color: var(--yellow); background: rgba(255,255,255,.12); transform: translateY(-2px); }
+  .links i { color: var(--yellow); }
+
+  /* ---------- Navigation ---------- */
+  .toc { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); }
+  .toc ul { list-style: none; margin: 0; padding: 0; }
+  .toc a {
+    display: block; padding: 5px 12px;
+    border-left: 3px solid transparent;
+    color: var(--side-text); font-size: .92rem; text-decoration: none;
+    transition: color .2s, padding-left .2s;
+  }
+  .toc a:hover { color: #fff; padding-left: 16px; }
+  .toc a.active { color: #fff; border-left-color: var(--yellow); font-weight: 500; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 8px 0 44px; scroll-margin-top: 24px; }
+  html.js section { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  html.js section.in { opacity: 1; transform: none; }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: 1.65rem; color: var(--navy);
+    margin: 0 0 20px; display: flex; align-items: center; gap: 12px;
+  }
+  h2::before { content: ""; width: 6px; height: 1.05em; border-radius: 3px; background: var(--yellow); }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  h3 {
+    font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em;
+    color: var(--blue); margin: 30px 0 8px;
+  }
+  h2 + h3 { margin-top: 0; }
+  .lead { font-size: 1.15rem; line-height: 1.55; margin: 0 0 18px; }
+  .note { color: var(--muted); font-size: .9rem; margin: 0 0 14px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .tag {
+    background: var(--blue-soft); color: var(--navy);
+    border-radius: 999px; padding: 4px 12px;
+    font-size: .82rem; font-weight: 500;
+    transition: background .2s, color .2s;
+  }
+  .tag:hover { background: var(--navy); color: #fff; }
+
+  /* Research topics: hover or tap to show a description */
+  .topic { border: 0; font-family: inherit; line-height: 1.6; cursor: pointer; transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
+  .topic:hover, .topic.active { background: var(--navy); color: #fff; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(15, 47, 107, .18); }
+  .topic:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+  .topic-panel {
+    display: grid;
+    margin-top: 16px; padding: 14px 18px; min-height: 78px;
+    background: var(--surface);
+    border: 1px solid var(--line); border-left: 4px solid var(--yellow); border-radius: 12px;
+  }
+  .topic-panel .icon {
+    flex: none; width: 44px; height: 44px; border-radius: 12px;
+    display: grid; place-items: center;
+    background: var(--navy); color: var(--yellow); font-size: 1.15rem;
+  }
+  .topic-panel b { color: var(--navy); }
+  .topic-panel p { margin: 2px 0 0; color: var(--muted); font-size: .93rem; }
+  .topic-state { grid-area: 1 / 1; display: flex; align-items: center; gap: 14px; visibility: hidden; }
+  .topic-state.active { visibility: visible; animation: drop .3s ease; }
+
+  /* ---------- Cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .cards > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line); border-top: 3px solid var(--blue);
+    border-radius: 12px; padding: 18px 20px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--lift); border-top-color: var(--yellow); }
+  .card h4 { margin: 0 0 6px; font-size: 1rem; line-height: 1.35; color: var(--navy); }
+  .card p { margin: 0; color: var(--muted); font-size: .93rem; }
+  .card .card-links { margin-top: 10px; font-size: .88rem; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .card .tags { margin-top: 12px; }
+  .card .tag { background: #fff; border: 1px solid var(--line); }
+  .card .tag:hover { background: var(--navy); border-color: var(--navy); }
+  a.tag { display: inline-block; text-decoration: none; }
+  .skill { display: flex; gap: 14px; align-items: center; }
+  .skill .icon {
+    flex: none; width: 42px; height: 42px; border-radius: 12px;
+    display: grid; place-items: center;
+    background: var(--blue-soft); color: var(--blue); font-size: 1.1rem;
+    transition: background .25s, color .25s, transform .25s;
+  }
+  .skill:hover .icon { background: var(--yellow); color: var(--navy); transform: rotate(-8deg); }
+  .card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .card-head h4 { margin: 0; }
+  .card-logo {
+    flex: none; width: 42px; height: 42px; padding: 4px; object-fit: contain;
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    transition: transform .25s ease;
+  }
+  .card:hover .card-logo { transform: scale(1.08); }
+  .contact-cards { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+  @media (max-width: 420px) { .contact-cards { grid-template-columns: 1fr; } }
+  .contact > div { min-width: 0; }
+  .contact h4 { margin-bottom: 2px; }
+  .contact a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+  .contact a:hover { text-decoration: underline; }
+  .copy {
+    flex: none; margin-left: auto; width: 36px; height: 36px; border-radius: 10px;
+    border: 1px solid var(--blue-line); background: #fff; color: var(--blue); cursor: pointer;
+    display: grid; place-items: center; transition: background .2s, border-color .2s;
+  }
+  .copy[hidden] { display: none; }
+  .copy:hover { background: var(--blue-soft); border-color: var(--blue); }
+  .reveal {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 2px;
+    padding: 4px 12px; border: 1px solid var(--blue-line); border-radius: 999px;
+    background: #fff; color: var(--blue); font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer;
+    transition: background .2s, border-color .2s;
+  }
+  .reveal:hover { background: var(--blue-soft); border-color: var(--blue); }
+  .copy.done { background: var(--yellow-soft); border-color: var(--yellow); color: var(--yellow-ink); }
+  .courses { margin: 0; padding-left: 18px; font-size: .95rem; }
+  .courses li { margin-bottom: 4px; }
+
+  /* ---------- Entries ---------- */
+  .entries { list-style: none; margin: 0; padding: 0; }
+  .entry {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px;
+    padding: 13px 12px; margin: 0 -12px;
+    border-bottom: 1px solid var(--line); border-radius: 10px;
+    transition: background .2s;
+  }
+  .entry:last-child { border-bottom-color: transparent; }
+  .entry:hover { background: var(--surface); }
+  .entry .title { font-weight: 600; line-height: 1.4; }
+  .entry .when { color: var(--muted); font-size: .86rem; white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .entry .sub { grid-column: 1 / -1; color: var(--muted); font-size: .93rem; margin-top: 2px; }
+  .entry .detail { grid-column: 1 / -1; font-size: .93rem; margin-top: 6px; }
+  .entry .detail p { margin: 2px 0; }
+  .entry .actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .pill-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 11px; border: 1px solid var(--blue-line); border-radius: 999px;
+    background: #fff; font-size: .82rem; font-weight: 500; text-decoration: none;
+    transition: background .2s, border-color .2s, transform .2s;
+  }
+  .pill-link:hover { background: var(--blue-soft); border-color: var(--blue); transform: translateY(-2px); }
+  .pill-link i { font-size: .72rem; }
+
+  .entry.with-logo { grid-template-columns: 52px minmax(0, 1fr) auto; column-gap: 16px; align-items: start; }
+  .entry.with-logo .logo {
+    grid-column: 1; grid-row: 1 / span 4; align-self: center;
+    width: 52px; height: 52px; padding: 5px; object-fit: contain;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .entry.with-logo .logo-icon { display: grid; place-items: center; color: var(--blue); font-size: 1.35rem; }
+  .entry.with-logo:hover .logo { transform: scale(1.08); box-shadow: 0 6px 14px rgba(15, 47, 107, .12); }
+  .entry.with-logo .title { grid-column: 2; }
+  .entry.with-logo .when { grid-column: 3; }
+  .entry.with-logo .sub, .entry.with-logo .detail, .entry.with-logo .actions { grid-column: 2 / -1; }
+
+  .badge {
+    display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .02em;
+    padding: 2px 8px; border-radius: 6px;
+    background: var(--blue-soft); color: var(--navy);
+    vertical-align: 2px; margin-left: 6px;
+  }
+  .badge.muted { background: #eef1f6; color: var(--muted); }
+  .badge.gold { background: var(--yellow-soft); color: var(--yellow-ink); }
+
+  /* ---------- Collapsible groups ---------- */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  .pub-group {
+    border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; background: #fff;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .pub-group:hover, .pub-group[open] { border-color: var(--blue-line); }
+  .pub-group:hover { box-shadow: 0 6px 18px rgba(15, 47, 107, .07); }
+  .pub-group > summary { display: flex; align-items: center; gap: 12px; padding: 14px 18px; font-weight: 600; color: var(--navy); }
+  .pub-group > summary .count {
+    margin-left: auto; flex: none;
+    background: var(--blue-soft); color: var(--navy);
+    font-size: .78rem; padding: 2px 10px; border-radius: 999px;
+  }
+  .pub-group > summary::after {
+    content: ""; flex: none; width: 8px; height: 8px; margin: -4px 2px 0 4px;
+    border-right: 2px solid var(--blue); border-bottom: 2px solid var(--blue);
+    transform: rotate(45deg); transition: transform .25s;
+  }
+  .pub-group[open] > summary::after { transform: rotate(225deg); margin-top: 4px; }
+  .pub-group[open] > .pubs { animation: drop .3s ease; }
+
+  .more > summary {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 10px;
+    padding: 6px 14px; border: 1px solid var(--blue-line); border-radius: 999px;
+    font-size: .86rem; font-weight: 500; color: var(--blue);
+    transition: background .2s, border-color .2s;
+  }
+  .more > summary:hover { background: var(--blue-soft); border-color: var(--blue); }
+  .more > summary i { font-size: .72rem; transition: transform .25s; }
+  .more[open] > summary i { transform: rotate(180deg); }
+  .more[open] > summary .closed, .more:not([open]) > summary .opened { display: none; }
+  .more[open] > .entries { animation: drop .3s ease; margin-top: 6px; }
+
+  /* ---------- Publications ---------- */
+  .pubs { list-style: none; margin: 0; padding: 0 18px 8px; }
+  .pubs li {
+    display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px;
+    padding: 10px 0; border-top: 1px dashed var(--line); font-size: .95rem;
+  }
+  .pubs .yr { color: var(--blue); font-weight: 600; font-size: .84rem; padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .pubs b { font-weight: 600; color: var(--navy); }
+  .pubs a { overflow-wrap: anywhere; }
+
+  footer { border-top: 3px solid var(--yellow); padding: 20px 0 8px; color: var(--muted); font-size: .85rem; }
+
+  /* Back-to-top button */
+  .to-top {
+    position: fixed; right: 20px; bottom: 20px; z-index: 20;
+    width: 44px; height: 44px; border: 0; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer;
+    background: var(--navy); color: var(--yellow); font-size: 1rem;
+    box-shadow: 0 6px 18px rgba(15, 47, 107, .3);
+    opacity: 0; visibility: hidden; transform: translateY(10px);
+    transition: opacity .25s, transform .25s, visibility .25s, background .2s;
+  }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover { background: var(--blue); }
+  .to-top:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+
+  /* ---------- Small screens ---------- */
+  @media (max-width: 900px) {
+    .layout { display: block; }
+    .aside { display: contents; }
+    .profile { background: var(--navy); color: #fff; text-align: center; padding: 36px 16px 28px; }
+    .photo { margin: 0 auto; width: 144px; height: 144px; }
+    h1 { font-size: 1.8rem; }
+    .links { max-width: 300px; margin-left: auto; margin-right: auto; }
+    .toc {
+      position: sticky; top: 0; z-index: 10; margin: 0; padding: 8px 16px;
+      border-top: 0; border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.94);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .toc::-webkit-scrollbar { display: none; }
+    .toc ul { display: flex; gap: 4px; white-space: nowrap; }
+    .toc a { border-left: 0; border-radius: 999px; padding: 6px 12px; font-size: .88rem; color: var(--muted); }
+    .toc a:hover { color: var(--navy); padding-left: 12px; }
+    .toc a.active { background: var(--navy); color: #fff; }
+    main { padding: 28px 16px 48px; }
+    section { scroll-margin-top: 64px; }
+    .cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    h2 { font-size: 1.45rem; }
+    .entry { grid-template-columns: 1fr; }
+    .entry .when { padding-top: 0; }
+    .entry.with-logo { grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; }
+    .entry.with-logo .logo { width: 44px; height: 44px; grid-row: 1 / span 5; }
+    .entry.with-logo .when, .entry.with-logo .sub, .entry.with-logo .detail, .entry.with-logo .actions { grid-column: 2; }
+    .pubs { padding: 0 14px 6px; }
+    .pubs li { grid-template-columns: 1fr; gap: 0; }
+    .pub-group > summary { padding: 12px 14px; }
+    .contact { padding: 14px 14px; gap: 10px; }
+    .contact .icon { width: 36px; height: 36px; font-size: .95rem; }
+    .contact a { font-size: .92rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    html.js section { opacity: 1; transform: none; }
+  }
+
+  /* ---------- Print / Save as PDF ---------- */
+  @media print {
+    html.js section { opacity: 1 !important; transform: none !important; }
+    .layout { display: block; }
+    .aside, .profile { position: static; height: auto; overflow: visible; padding: 0; background: none; color: #000; text-align: left; }
+    .photo { margin: 0; }
+    h1, .role { color: #000; }
+    .creds { color: #444; }
+    .photo { box-shadow: none; }
+    .toc, .links, .actions, .more > summary, .topic-panel, .to-top, .copy { display: none; }
+    main { padding: 16px 0 0; max-width: none; }
+    .card, .entry, .pubs li { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="aside">
+    <header class="profile">
+      <img class="photo" src="photo.jpg" alt="Portrait of Mia Yang Ang" width="168" height="168">
+      <h1>Mia Yang Ang</h1>
+      <p class="creds">PhD &middot; MDSc &middot; BSc (Hons)</p>
+      <p class="role">Bioinformatics Educator &amp;&nbsp;Researcher</p>
+      <nav class="links" aria-label="Contact and profiles">
+        <a href="https://sunwayuniversity.edu.my/jeffrey-cheah-sunway-medical-school/staff-profiles/dr-ang-mia-yang" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Official Profile</a>
+        <a href="https://scholar.google.com/citations?user=Wm4iK6wAAAAJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i>Scholar</a>
+        <a href="https://orcid.org/0000-0003-2709-6754" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-orcid" aria-hidden="true"></i>ORCID</a>
+        <a href="https://www.linkedin.com/in/angmiayang" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
+        <a href="https://github.com/angmiayang" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+      </nav>
+    </header>
+
+    <nav class="toc" aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#appointments">Appointments</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#software">Software &amp; Databases</a></li>
+        <li><a href="#grants">Grants &amp; Scholarships</a></li>
+        <li><a href="#teaching">Teaching &amp; Supervision</a></li>
+        <li><a href="#talks">Talks &amp; Workshops</a></li>
+        <li><a href="#service">Service &amp; Memberships</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">Bioinformatics educator and computational biologist working across microbial genomics, multi-omics integration and applied artificial intelligence.</p>
+      <ul class="tags" aria-label="Research interests">
+        <li><button type="button" class="tag topic" data-icon="fa-bacteria" data-desc="Comparative genomics of bacterial pathogens, and tracing how strains such as MRSA spread across hospitals and Southeast Asia.">Microbial genomics</button></li>
+        <li><button type="button" class="tag topic" data-icon="fa-shield-virus" data-desc="Detecting resistance genes from genomes, and building tools such as AMRColab and hAMRonization.">Antimicrobial resistance</button></li>
+        <li><button type="button" class="tag topic" data-icon="fa-layer-group" data-desc="Combining genomic, transcriptomic, proteomic and microbiome data to understand disease.">Multi-omics integration</button></li>
+        <li><button type="button" class="tag topic" data-icon="fa-crosshairs" data-desc="Finding biomarkers and therapeutic targets that move discoveries towards patients.">Precision medicine</button></li>
+        <li><button type="button" class="tag topic" data-icon="fa-brain" data-desc="Trustworthy, explainable and responsible use of AI and large language models in biology.">AI in bioinformatics</button></li>
+      </ul>
+      <div class="topic-panel" aria-live="polite">
+        <div class="topic-state active">
+          <span class="icon"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i></span>
+          <div><b>Research interests</b><p>Hover over or tap a topic to learn more.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERTISE ===================== -->
+    <section id="expertise">
+      <h2>Expertise</h2>
+      <div class="cards">
+        <div class="card skill">
+          <span class="icon"><i class="fa-solid fa-dna" aria-hidden="true"></i></span>
+          <div><h4>Bioinformatics &amp; NGS Data Analysis</h4><p>Workflows for genomic, transcriptomic, proteomic and multi-omics data.</p></div>
+        </div>
+        <div class="card skill">
+          <span class="icon"><i class="fa-solid fa-bacterium" aria-hidden="true"></i></span>
+          <div><h4>Microbial Genomics &amp; AMR</h4><p>Comparative genomics, pathogen surveillance and molecular epidemiology.</p></div>
+        </div>
+        <div class="card skill">
+          <span class="icon"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+          <div><h4>HPC &amp; Database Management</h4><p>Server administration, scalable workflows and data management.</p></div>
+        </div>
+        <div class="card skill">
+          <span class="icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+          <div><h4>Algorithm Development &amp; Programming</h4><p>Reproducible pipelines in Bash, R, Perl and Python.</p></div>
+        </div>
+        <div class="card skill">
+          <span class="icon"><i class="fa-solid fa-capsules" aria-hidden="true"></i></span>
+          <div><h4>Precision Medicine, Biomarkers &amp; Drug Development</h4><p>Computational biomarker discovery and integrative analysis for translational research.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APPOINTMENTS ===================== -->
+    <section id="appointments">
+      <h2>Appointments</h2>
+
+      <h3>Current: academic &amp; research</h3>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/sunway.png" alt="" width="52" height="52"><span class="title">Senior Lecturer</span><span class="when">2026 – Present</span><span class="sub">Department of Biomedical Sciences, Jeffrey Cheah Sunway Medical School, Faculty of Medical and Life Sciences, Sunway University, Malaysia</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/unair.png" alt="" width="52" height="52"><span class="title">Adjunct Professor (Academic Fellow)</span><span class="when">2025 – Present</span><span class="sub">Faculty of Fisheries and Marine, Airlangga University, Indonesia</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/wku.png" alt="" width="52" height="52"><span class="title">Member, Zhejiang-Malaysia Joint Laboratory on Rare Medicinal Resources</span><span class="when">2026 – Present</span><span class="sub">Wenzhou-Kean University, China</span></li>
+      </ul>
+
+      <h3>Current: industry &amp; advisory</h3>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/arcadia.png" alt="" width="52" height="52"><span class="title">Key Opinion Leader (Bioinformatics, AI and Machine Learning)</span><span class="when">2024 – Present</span><span class="sub">Arcadia Life Sciences Sdn. Bhd., Malaysia</span></li>
+      </ul>
+
+      <h3>Previous</h3>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/msu.png" alt="" width="52" height="52"><span class="title">Senior Lecturer</span><span class="when">2024 – 2025</span><span class="sub">Faculty of Health and Life Sciences, Management and Science University, Malaysia</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/msu.png" alt="" width="52" height="52"><span class="title">Faculty Research Group Leader</span><span class="when">2024 – 2025</span><span class="sub">Computational Approach &amp; Infectious Disease Research Group, Management and Science University, Malaysia</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/henan.png" alt="" width="52" height="52"><span class="title">Visiting Lecturer</span><span class="when">2025</span><span class="sub">Joint Institute of MSU, Henan University of Chinese Medicine, China</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/ncgm.png" alt="" width="52" height="52"><span class="title">International Research Scholar</span><span class="when">2019 – 2024</span><span class="sub">Research Institute, National Center for Global Health and Medicine, Japan</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/ukm.png" alt="" width="52" height="52"><span class="title">Research Officer</span><span class="when">2017 – 2019</span><span class="sub">UKM Medical Molecular Biology Institute, The National University of Malaysia, Malaysia</span></li>
+      </ul>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/utokyo.png" alt="" width="52" height="52"><span class="title">PhD in Medical Science (Bioinformatics)</span><span class="when">2020 – 2024</span><span class="sub">The University of Tokyo, Japan</span><div class="detail"><p><b>Thesis:</b> Deciphering the genetic landscape of obesity using a data-driven approach</p></div></li>
+        <li class="entry with-logo"><img class="logo" src="logos/um.png" alt="" width="52" height="52"><span class="title">Master of Dental Science (MDSc) in Bioinformatics</span><span class="when">2013 – 2015</span><span class="sub">Faculty of Dentistry, University of Malaya, Malaysia</span><div class="detail"><p><b>Thesis:</b> Genomic and comparative analyses of <i>Fusobacterium nucleatum</i> W1481, a possible novel subspecies</p></div></li>
+        <li class="entry with-logo"><img class="logo" src="logos/ukm.png" alt="" width="52" height="52"><span class="title">BSc (Hons) in Bioinformatics</span><span class="when">2009 – 2012</span><span class="sub">The National University of Malaysia, Malaysia</span><div class="detail"><p><b>Thesis:</b> Functional interpretation of BPSL0829 from <i>Burkholderia pseudomallei</i> using a comparative modelling approach</p></div></li>
+      </ul>
+    </section>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="note">Grouped by theme. Click a theme to expand. Full list on <a href="https://scholar.google.com/citations?user=Wm4iK6wAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> and <a href="https://orcid.org/0000-0003-2709-6754" target="_blank" rel="noopener noreferrer">ORCID</a>.</p>
+
+      <details class="pub-group" open>
+        <summary>AI, machine learning &amp; responsible bioinformatics <span class="count">5</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. Trustworthy agentic AI in bioinformatics: From workflow automation to traceable and validated biological inference. <i>Biology</i>, 15(17), 1537. <a href="https://doi.org/10.3390/biology15171537" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biology15171537</a></span></li>
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. AI-guided long non-coding RNA target discovery for precision medicine: Integrating GWAS, multi-omics, experimental validation, and RNA therapeutics. <i>Biomedicines</i>, 14(8), 1722. <a href="https://doi.org/10.3390/biomedicines14081722" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biomedicines14081722</a></span></li>
+          <li><span class="yr">2026</span><span>Zhou, Z., et al. Deep learning in tumour genomics: From multi-omics integration to precision oncology. <i>Open Biology</i>, 16(7), 260117. <a href="https://doi.org/10.1098/rsob.260117" target="_blank" rel="noopener noreferrer">https://doi.org/10.1098/rsob.260117</a></span></li>
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. From GWAS signals to molecular mechanisms: Explainable AI for causal gene prioritization and biomolecular target interpretation. <i>Biomolecules</i>, 16(7), 1029. <a href="https://doi.org/10.3390/biom16071029" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biom16071029</a></span></li>
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. Responsible use of large language models in microbial genomics and bioinformatics: A life-science framework for reliability, reproducibility, and risk-aware interpretation. <i>Life</i>, 16(6), 1032. <a href="https://doi.org/10.3390/life16061032" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/life16061032</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Genomic epidemiology &amp; antimicrobial resistance <span class="count">7</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. Phage genomics and bioinformatics in therapeutic development: Evidence limits, validation gates, and translational decision-making. <i>Pharmaceuticals</i>, 19(9), 1465. <a href="https://doi.org/10.3390/ph19091465" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/ph19091465</a></span></li>
+          <li><span class="yr">2025</span><span><b>Ang, M. Y.</b>, et al. Misidentification of <i>Staphylococcus epidermidis</i> M15_2005 in a diagnostic microbiology laboratory: Whole genome sequencing as a confirmatory tool? <i>Malaysian Journal of Microbiology</i>, 21(4), 442–446. <a href="https://doi.org/10.21161/mjm.240708" target="_blank" rel="noopener noreferrer">https://doi.org/10.21161/mjm.240708</a></span></li>
+          <li><span class="yr">2025</span><span>Chen, L., et al. Squama Manitis extract exhibits broad-spectrum antibacterial activity through energy and DNA disruption mechanisms. <i>Biology</i>, 14(8), 949. <a href="https://doi.org/10.3390/biology14080949" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biology14080949</a></span></li>
+          <li><span class="yr">2024</span><span>Lam, S. D., et al. AMRColab: A user-friendly antimicrobial resistance detection and visualization tool. <i>Microbial Genomics</i>, 10(10), 001308. <a href="https://doi.org/10.1099/mgen.0.001308" target="_blank" rel="noopener noreferrer">https://doi.org/10.1099/mgen.0.001308</a></span></li>
+          <li><span class="yr">2024</span><span>Farook, N. A. M., et al. Desiccation tolerance and reduced antibiotic resistance: Key drivers in ST239-III to ST22-IV MRSA clonal replacement at a Malaysian teaching hospital. <i>International Journal of Medical Microbiology</i>, 317, 151638. <a href="https://doi.org/10.1016/j.ijmm.2024.151638" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.ijmm.2024.151638</a></span></li>
+          <li><span class="yr">2022</span><span><b>Ang, M. Y.</b>, et al. Draft genome sequences of four methicillin-resistant <i>Staphylococcus aureus</i> strains (M080_2017, M106_2017, M181_2017, and M191_2017), isolated from a Malaysian teaching hospital. <i>Microbiology Resource Announcements</i>, 11(12), e00867-22. <a href="https://doi.org/10.1128/mra.00867-22" target="_blank" rel="noopener noreferrer">https://doi.org/10.1128/mra.00867-22</a></span></li>
+          <li><span class="yr">2022</span><span>Farook, N. A. M., et al. Diversity and dissemination of methicillin-resistant <i>Staphylococcus aureus</i> (MRSA) genotypes in Southeast Asia. <i>Tropical Medicine and Infectious Disease</i>, 7(12), 438. <a href="https://doi.org/10.3390/tropicalmed7120438" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/tropicalmed7120438</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Comparative &amp; functional genomics of pathogens <span class="count">6</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2021</span><span>Osman, M. A., et al. <i>Parvimonas micra</i>, <i>Peptostreptococcus stomatis</i>, <i>Fusobacterium nucleatum</i> and <i>Akkermansia muciniphila</i> as a four-bacteria biomarker panel of colorectal cancer. <i>Scientific Reports</i>, 11(1), 2925. <a href="https://doi.org/10.1038/s41598-021-82465-0" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41598-021-82465-0</a></span></li>
+          <li><span class="yr">2016</span><span>Choo, S. W., et al. Comparative genomic analysis reveals a possible novel non-tuberculous <i>Mycobacterium</i> species with high pathogenic potential. <i>PLOS ONE</i>, 11(4), e0150413. <a href="https://doi.org/10.1371/journal.pone.0150413" target="_blank" rel="noopener noreferrer">https://doi.org/10.1371/journal.pone.0150413</a></span></li>
+          <li><span class="yr">2016</span><span><b>Ang, M. Y.</b>, et al. Comparative genome analysis of <i>Fusobacterium nucleatum</i>. <i>Genome Biology and Evolution</i>, 8(9), 2928–2938. <a href="https://doi.org/10.1093/gbe/evw199" target="_blank" rel="noopener noreferrer">https://doi.org/10.1093/gbe/evw199</a></span></li>
+          <li><span class="yr">2014</span><span><b>Ang, M. Y.</b>, et al. Genome sequence of <i>Fusobacterium nucleatum</i> strain W1481, a possible new subspecies isolated from a periodontal pocket. <i>Genome Announcements</i>, 2(1), e00009-14. <a href="https://doi.org/10.1128/genomea.00009-14" target="_blank" rel="noopener noreferrer">https://doi.org/10.1128/genomea.00009-14</a></span></li>
+          <li><span class="yr">2013</span><span><b>Ang, M. Y.</b>, et al. Genome sequence of <i>Parvimonas micra</i> strain A293, isolated from an abdominal abscess from a patient in the United Kingdom. <i>Genome Announcements</i>, 1(6), e01025-13. <a href="https://doi.org/10.1128/genomea.01025-13" target="_blank" rel="noopener noreferrer">https://doi.org/10.1128/genomea.01025-13</a></span></li>
+          <li><span class="yr">2013</span><span>Tan, J. L., et al. First whole-genome sequence of <i>Mycobacterium iranicum</i>, a newly reported mycobacterial species. <i>Genome Announcements</i>, 1(5), e00732-13. <a href="https://doi.org/10.1128/genomea.00732-13" target="_blank" rel="noopener noreferrer">https://doi.org/10.1128/genomea.00732-13</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Multi-omics, precision medicine &amp; systems biology <span class="count">12</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. The Nutri-Exposome Intelligence Framework: Integrating multi-omics, machine learning, and digital nutrition for precision chronic disease prevention. <i>Nutrients</i>, 18(11), 1826. <a href="https://doi.org/10.3390/nu18111826" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/nu18111826</a></span></li>
+          <li><span class="yr">2026</span><span>Liu, Z., et al. Gut microbiota in colorectal cancer: Mechanistic insights, clinical strategies, and a regional perspective with a focus on Sichuan, China. <i>Cancers</i>, 18(11), 1693. <a href="https://doi.org/10.3390/cancers18111693" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/cancers18111693</a></span></li>
+          <li><span class="yr">2026</span><span>Liu, Z., et al. Multi-omics integration in colorectal cancer: From molecular insights to precision oncology. <i>Cancers</i>, 18(10), 1504. <a href="https://doi.org/10.3390/cancers18101504" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/cancers18101504</a></span></li>
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. Mechanistic systems biology of high-salinity fermented seafood: Multi-omics integration for microbial safety and quality prediction. <i>Biology</i>, 15(10), 772. <a href="https://doi.org/10.3390/biology15100772" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biology15100772</a></span></li>
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. The computational revolution in natural product research: A data-driven roadmap for next-generation drug development. <i>Biology</i>, 15(8), 632. <a href="https://doi.org/10.3390/biology15080632" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biology15080632</a></span></li>
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. Environmentally driven precision neurology: A neurogenomic perspective. <i>Biology</i>, 15(3), 283. <a href="https://doi.org/10.3390/biology15030283" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/biology15030283</a></span></li>
+          <li><span class="yr">2023</span><span><b>Ang, M. Y.</b>, et al. Deciphering the genetic landscape of obesity: A data-driven approach to identifying plausible causal genes and therapeutic targets. <i>Journal of Human Genetics</i>, 68(12), 823–833. <a href="https://doi.org/10.1038/s10038-023-01189-3" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s10038-023-01189-3</a></span></li>
+          <li><span class="yr">2023</span><span>Takeuchi, F., et al. Gene-regulation modules in nonalcoholic fatty liver disease revealed by single-nucleus ATAC-seq. <i>Life Science Alliance</i>, 6(10), e202301988. <a href="https://doi.org/10.26508/lsa.202301988" target="_blank" rel="noopener noreferrer">https://doi.org/10.26508/lsa.202301988</a></span></li>
+          <li><span class="yr">2022</span><span>Takeuchi, F., et al. Transcriptomic response in the heart and kidney to different types of antihypertensive drug administration. <i>Hypertension</i>, 79(2), 413–423. <a href="https://doi.org/10.1161/hypertensionaha.121.18026" target="_blank" rel="noopener noreferrer">https://doi.org/10.1161/hypertensionaha.121.18026</a></span></li>
+          <li><span class="yr">2019</span><span>Abdul Murad, N. A., et al. Digenic inheritance of heterozygous FANCA and BRCA2 mutations in a VACTERL-H patient. <i>Asian Journal of Medicine and Biomedicine</i>, 3(2), 35–45.</span></li>
+          <li><span class="yr">2019</span><span><b>Ang, M. Y.</b>, et al. Proteogenomics: From next-generation sequencing (NGS) and mass spectrometry-based proteomics to precision medicine. <i>Clinica Chimica Acta</i>, 498, 38–46. <a href="https://doi.org/10.1016/j.cca.2019.08.010" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.cca.2019.08.010</a></span></li>
+          <li><span class="yr">2019</span><span>Low, T. Y., et al. Connecting proteomics to next-generation sequencing: Proteogenomics and its current applications in biology. <i>Proteomics</i>, 19(10), e1800235. <a href="https://doi.org/10.1002/pmic.201800235" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/pmic.201800235</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Bioinformatics platforms &amp; genomic databases <span class="count">9</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2016</span><span>Zheng, W., et al. NeisseriaBase: A specialised <i>Neisseria</i> genomic resource and analysis platform. <i>PeerJ</i>, 4, e1698. <a href="https://doi.org/10.7717/peerj.1698" target="_blank" rel="noopener noreferrer">https://doi.org/10.7717/peerj.1698</a></span></li>
+          <li><span class="yr">2015</span><span>Choo, S. W., et al. MycoCAP: <i>Mycobacterium</i> Comparative Analysis Platform. <i>Scientific Reports</i>, 5, 18227. <a href="https://doi.org/10.1038/srep18227" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/srep18227</a></span></li>
+          <li><span class="yr">2015</span><span>Tan, S. Y., et al. YersiniaBase: A genomic resource and analysis platform for comparative analysis of <i>Yersinia</i>. <i>BMC Bioinformatics</i>, 16, 9. <a href="https://doi.org/10.1186/s12859-014-0422-y" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12859-014-0422-y</a></span></li>
+          <li><span class="yr">2015</span><span>Tan, M. F., et al. Development of ListeriaBase and comparative analysis of <i>Listeria monocytogenes</i>. <i>BMC Genomics</i>, 16, 755. <a href="https://doi.org/10.1186/s12864-015-1959-5" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12864-015-1959-5</a></span></li>
+          <li><span class="yr">2014</span><span><b>Ang, M. Y.</b>, et al. FusoBase: An online <i>Fusobacterium</i> comparative genomic analysis platform. <i>Database</i>, 2014, bau082. <a href="https://doi.org/10.1093/database/bau082" target="_blank" rel="noopener noreferrer">https://doi.org/10.1093/database/bau082</a></span></li>
+          <li><span class="yr">2014</span><span>Choo, S. W., et al. HelicoBase: A <i>Helicobacter</i> genomic resource and analysis platform. <i>BMC Genomics</i>, 15, 600. <a href="https://doi.org/10.1186/1471-2164-15-600" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/1471-2164-15-600</a></span></li>
+          <li><span class="yr">2014</span><span>Heydari, H., et al. StaphyloBase: A specialized genomic resource for the staphylococcal research community. <i>Database</i>, 2014, bau010. <a href="https://doi.org/10.1093/database/bau010" target="_blank" rel="noopener noreferrer">https://doi.org/10.1093/database/bau010</a></span></li>
+          <li><span class="yr">2014</span><span>Choo, S. W., et al. VibrioBase: A model for next-generation genome and annotation database development. <i>The Scientific World Journal</i>, 2014, 569324. <a href="https://doi.org/10.1155/2014/569324" target="_blank" rel="noopener noreferrer">https://doi.org/10.1155/2014/569324</a></span></li>
+          <li><span class="yr">2014</span><span>Heydari, H., et al. CoryneBase: <i>Corynebacterium</i> genomic resources and analysis tools at your fingertips. <i>PLOS ONE</i>, 9(1), e86318. <a href="https://doi.org/10.1371/journal.pone.0086318" target="_blank" rel="noopener noreferrer">https://doi.org/10.1371/journal.pone.0086318</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Environmental microbiome, conservation &amp; public health <span class="count">3</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2026</span><span><b>Ang, M. Y.</b>, et al. 16S rRNA gene sequencing baseline for the atmospheric microbiome of traffic-impacted urban centers in the Klang Valley, Malaysia. <i>Microbiology Resource Announcements</i>, 15(7), e00477-26. <a href="https://doi.org/10.1128/mra.00477-26" target="_blank" rel="noopener noreferrer">https://doi.org/10.1128/mra.00477-26</a></span></li>
+          <li><span class="yr">2026</span><span>Aljarousha, M., et al. Depression, anxiety, stress, and dry eye disease among Gazan undergraduate health sciences and nursing students: A structural equation modeling study. <i>Contact Lens and Anterior Eye</i>, 49(1), 102504. <a href="https://doi.org/10.1016/j.clae.2025.102504" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.clae.2025.102504</a></span></li>
+          <li><span class="yr">2022</span><span>Choo, S. W., et al. A collective statement in support of saving pangolins. <i>Science of the Total Environment</i>, 824, 153666. <a href="https://doi.org/10.1016/j.scitotenv.2022.153666" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.scitotenv.2022.153666</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Book chapters <span class="count">3</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2027</span><span>Feisal, N. A. S., et al. Life cycle assessment on sustainable biorefinery of microalgae. In <i>Applied Phycology</i> (pp. 413–454). Elsevier.</span></li>
+          <li><span class="yr">2025</span><span>Abdullah-Zawawi, M.-R., et al. Computational methods for disentangling host–pathogen interaction landscapes. In <i>Encyclopedia of Bioinformatics and Computational Biology</i> (pp. 450–462). Elsevier. <a href="https://doi.org/10.1016/b978-0-323-95502-7.00257-8" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/b978-0-323-95502-7.00257-8</a></span></li>
+          <li><span class="yr">2022</span><span>Tan, S. C., et al. Management of next-generation sequencing in precision medicine. In <i>Regionalized Management of Medicine</i> (Translational Bioinformatics, pp. 149–176). Springer. <a href="https://doi.org/10.1007/978-981-16-7893-6_11" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/978-981-16-7893-6_11</a></span></li>
+        </ol>
+      </details>
+
+      <details class="pub-group">
+        <summary>Preprints <span class="count">1</span></summary>
+        <ol class="pubs">
+          <li><span class="yr">2024</span><span>Mendes, C. I., et al. hAMRonization: Enhancing antimicrobial resistance prediction using the PHA4GE AMR detection specification and tooling. <i>bioRxiv</i>. <a href="https://doi.org/10.1101/2024.03.07.583950" target="_blank" rel="noopener noreferrer">https://doi.org/10.1101/2024.03.07.583950</a></span></li>
+        </ol>
+      </details>
+    </section>
+
+    <!-- ===================== SOFTWARE ===================== -->
+    <section id="software">
+      <h2>Software &amp; Databases</h2>
+      <div class="cards">
+        <div class="card">
+          <h4>AMRColab</h4>
+          <p>No-code antimicrobial resistance detection and visualization in Google Colab.</p>
+          <div class="card-links">
+            <a href="https://github.com/amrcolab/AMRColab" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            <a href="https://doi.org/10.5281/zenodo.7814532" target="_blank" rel="noopener noreferrer">Manual 2.0 (2023)</a>
+            <a href="https://microbiologysociety.org/resource/democratising-bioinformatics-breaking-the-bioinformatics-barrier-in-amr-genome-analysis.html" target="_blank" rel="noopener noreferrer">Microbiology Society blog (2024)</a>
+          </div>
+        </div>
+        <div class="card">
+          <h4>hAMRonization</h4>
+          <p>Standardized AMR gene detection specification and tooling, developed through PHA4GE.</p>
+          <div class="card-links">
+            <a href="https://github.com/pha4ge/hAMRonization" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            <a href="https://doi.org/10.1101/2024.03.07.583950" target="_blank" rel="noopener noreferrer">bioRxiv (2024)</a>
+          </div>
+        </div>
+        <div class="card">
+          <h4>Bacterial genomic resources</h4>
+          <p>Co-developer of comparative genomic databases and analysis platforms for bacterial pathogens. Select a database to read its paper on PubMed.</p>
+          <ul class="tags">
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/27017950/" target="_blank" rel="noopener noreferrer">NeisseriaBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/26666970/" target="_blank" rel="noopener noreferrer">MycoCAP</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/25591325/" target="_blank" rel="noopener noreferrer">YersiniaBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/26444974/" target="_blank" rel="noopener noreferrer">ListeriaBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/25149689/" target="_blank" rel="noopener noreferrer">FusoBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/24578355/" target="_blank" rel="noopener noreferrer">StaphyloBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/25030426/" target="_blank" rel="noopener noreferrer">HelicoBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/25243218/" target="_blank" rel="noopener noreferrer">VibrioBase</a></li>
+            <li><a class="tag" href="https://pubmed.ncbi.nlm.nih.gov/24466021/" target="_blank" rel="noopener noreferrer">CoryneBase</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GRANTS ===================== -->
+    <section id="grants">
+      <h2>Grants, Fellowships &amp; Scholarships</h2>
+
+      <h3>Research grants</h3>
+      <ul class="entries">
+        <li class="entry">
+          <span class="title">Collaborative Regional Research Programme (CRRP), FY2026<span class="badge">USD 118,805</span><span class="badge muted">Team member</span></span>
+          <span class="when">2026 – 2027</span>
+          <span class="sub">Asia-Pacific Network for Global Change Research (APN), Japan</span>
+          <div class="detail"><p>Airborne microbiome monitoring and climate-driven risk assessment for human health in Southeast Asia (Malaysia, Indonesia, Thailand).</p></div>
+          <div class="actions">
+            <a class="pill-link" href="https://www.apn-gcr.org/project/airborne-microbiome-monitoring-and-climate-driven-risk-assessment-for-human-health-in-southeast-asia/" target="_blank" rel="noopener noreferrer">APN project page <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <a class="pill-link" href="https://doi.org/10.30852/p.36731" target="_blank" rel="noopener noreferrer">Grant DOI <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="title">PHA4GE AMR Sub-Grant (AMR-SG-02; Team Malaysia)<span class="badge">USD 20,000</span><span class="badge muted">Team member</span></span>
+          <span class="when">2021 – 2022</span>
+          <span class="sub">Public Health Alliance for Genomic Epidemiology (PHA4GE), South Africa</span>
+          <div class="detail"><p>Implementation of hAMRonization for standardized AMR genome analysis, leading to the AMRColab platform.</p></div>
+          <div class="actions">
+            <a class="pill-link" href="https://pha4ge.org/articles/pha4ge-amr-sub-award-success-story-team-malaysia/" target="_blank" rel="noopener noreferrer">PHA4GE Team Malaysia story <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="title">MSU Industrial Collaboration Grant (MICG)<span class="badge">MYR 20,000</span><span class="badge gold">Principal Investigator</span></span>
+          <span class="when">2025 – 2027</span>
+          <span class="sub">Management and Science University, Malaysia</span>
+          <div class="detail"><p>Core genome diversity and molecular epidemiology of methicillin-resistant <i>Staphylococcus aureus</i> in Malaysia.</p></div>
+        </li>
+      </ul>
+
+      <h3>Fellowships &amp; scholarships</h3>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/mext.png" alt="" width="52" height="52"><span class="title">Japanese Government (MEXT) Scholarship</span><span class="when">2019 – 2024</span><span class="sub">Fully funded PhD, The University of Tokyo</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/um.png" alt="" width="52" height="52"><span class="title">University of Malaya HIR-GRAS Scholarship</span><span class="when">2013 – 2015</span><span class="sub">Fully funded MDSc, University of Malaya</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/jpa.png" alt="" width="52" height="52"><span class="title">Malaysia Public Service Department (JPA) Scholarship</span><span class="when">2009 – 2012</span><span class="sub">Fully funded BSc, The National University of Malaysia</span></li>
+      </ul>
+    </section>
+
+    <!-- ===================== TEACHING ===================== -->
+    <section id="teaching">
+      <h2>Teaching &amp; Supervision</h2>
+
+      <h3>Courses taught</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="card-head"><img class="card-logo" src="logos/sunway.png" alt="" width="42" height="42"><h4>Sunway University</h4></div>
+          <ul class="courses">
+            <li>AI Foundation and Applications</li>
+            <li>Basic Biostatistics</li>
+            <li>Bioinformatics</li>
+            <li>Current Topics in Biomedical Sciences</li>
+            <li>Research Methodology</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><img class="card-logo" src="logos/msu.png" alt="" width="42" height="42"><h4>Management and Science University</h4></div>
+          <ul class="courses">
+            <li>Bioinformatics II</li>
+            <li>Bioinformatics Data Processing</li>
+            <li>Sequence and Structure Analysis</li>
+            <li>Systems Biology</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><img class="card-logo" src="logos/henan.png" alt="" width="42" height="42"><h4>Henan University of Chinese Medicine</h4></div>
+          <ul class="courses">
+            <li>Bioinformatics for Pharmacy</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><img class="card-logo" src="logos/unair.png" alt="" width="42" height="42"><h4>Airlangga University (invited adjunct)</h4></div>
+          <ul class="courses">
+            <li>Bioinformatics Approaches in Macroalgal and Microalgal Biotechnology</li>
+            <li>Multi-Omics Approaches for Bioprospecting Secondary Metabolites in Macroalgae and Microalgae</li>
+            <li>Systems Biology Approaches for Understanding Metabolism in Macroalgae and Microalgae</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Student supervision</h3>
+      <ul class="entries">
+        <li class="entry"><span class="title">Liu Zuoliang<span class="badge gold">PhD</span></span><span class="when">2024 – Present</span><span class="sub">Co-supervisor &middot; Management and Science University, Malaysia</span><div class="detail"><p>Comprehensive analysis of colorectal cancer pathways in patients from Sichuan, China using transcriptomics and metagenomics approaches.</p></div></li>
+        <li class="entry"><span class="title">Arun Raj<span class="badge">Bachelor's</span></span><span class="when">2026 &middot; Completed</span><span class="sub">Main supervisor &middot; Sunway University, Malaysia</span><div class="detail"><p>Comparative genomic analysis of food-borne and clinical <i>Staphylococcus aureus</i> to assess zoonotic potential.</p></div></li>
+        <li class="entry"><span class="title">Bhavyasri Rajesh<span class="badge">Bachelor's</span></span><span class="when">2026 &middot; Completed</span><span class="sub">Main supervisor &middot; Sunway University, Malaysia</span><div class="detail"><p>Comparative genomics of <i>Staphylococcus aureus</i> USA300 vs. commensal lineages to identify fitness and virulence determinants.</p></div></li>
+        <li class="entry"><span class="title">Najla Ali Ahmed Al-Homeidy<span class="badge">Bachelor's</span></span><span class="when">2026 &middot; Completed</span><span class="sub">Main supervisor &middot; Sunway University, Malaysia</span><div class="detail"><p>A comparative genomic study of multidrug-resistance clusters across <i>Staphylococcus aureus</i> clonal complexes.</p></div></li>
+        <li class="entry"><span class="title">Nandinisree Thevar A/P Raja<span class="badge">Bachelor's</span></span><span class="when">2025 &middot; Completed</span><span class="sub">Main supervisor &middot; Management and Science University, Malaysia</span><div class="detail"><p>Comparative genomics of <i>Staphylococcus aureus</i>. <a href="https://doi.org/10.13140/RG.2.2.14806.51524" target="_blank" rel="noopener noreferrer">Report</a></p></div></li>
+        <li class="entry"><span class="title">Zhang Hongji<span class="badge">Bachelor's</span></span><span class="when">2025 &middot; Completed</span><span class="sub">Main supervisor &middot; Henan University of Chinese Medicine, China</span><div class="detail"><p>Attitudes of older Chinese adults toward Lily (<i>Lilium</i> spp.) use in Alzheimer's disease management.</p></div></li>
+      </ul>
+    </section>
+
+    <!-- ===================== TALKS ===================== -->
+    <section id="talks">
+      <h2>Talks &amp; Workshops</h2>
+      <h3>Talks &amp; presentations</h3>
+      <ul class="entries">
+        <li class="entry"><span class="title">Application of Bioinformatics Approaches in Microbiology<span class="badge gold">Invited lecture</span></span><span class="when">Sep 2026</span><span class="sub">Airlangga University, Indonesia (online)</span></li>
+        <li class="entry"><span class="title">Let’s Talk Science<span class="badge gold">Invited speaker</span></span><span class="when">Jun 2026</span><span class="sub">Malaysia Genome and Vaccine Institute (MGVI), NIBM</span></li>
+        <li class="entry"><span class="title">NCGMRI Summer Retreat Symposium<span class="badge muted">Poster</span></span><span class="when">Jul 2023</span><span class="sub">Japan</span></li>
+        <li class="entry"><span class="title">67th Annual Meeting of the Japan Society of Human Genetics<span class="badge muted">Poster</span></span><span class="when">Dec 2022</span><span class="sub">Japan</span></li>
+      </ul>
+      <details class="more">
+        <summary><span class="closed">Show 4 earlier</span><span class="opened">Show fewer</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <ul class="entries">
+          <li class="entry"><span class="title">RECOMB/ISCB Conference on Regulatory &amp; Systems Genomics (RSGDREAM 2022)<span class="badge muted">Poster</span></span><span class="when">Nov 2022</span><span class="sub">United States (online)</span></li>
+          <li class="entry"><span class="title">International Symposium on Bioinformatics (InSyB)<span class="badge muted">Poster</span></span><span class="when">Dec 2018</span><span class="sub">Malaysia</span></li>
+          <li class="entry"><span class="title">International Digestive Disease Forum (IDDF) 2018<span class="badge muted">2 abstracts</span></span><span class="when">Jun 2018</span><span class="sub">Hong Kong &middot; Published in <i>Gut</i>, 67(Suppl 2), A11 and A13</span></li>
+          <li class="entry"><span class="title">2nd Postgraduate Conference on Science and Technology Studies<span class="badge muted">Poster</span></span><span class="when">Dec 2013</span><span class="sub">Malaysia</span></li>
+        </ul>
+      </details>
+
+      <h3>Workshops &amp; training</h3>
+      <ul class="entries">
+        <li class="entry"><span class="title">Malaysia Microbiome Meeting (MMM) 2026 &amp; Sunway Microbiome Centre (SUMC) Soft Launch<span class="badge muted">Organizer</span></span><span class="when">Oct 2026</span><span class="sub">Sunway University, Malaysia</span><div class="actions"><a class="pill-link" href="https://sunwayuniversity.edu.my/conference/mmm-2026" target="_blank" rel="noopener noreferrer">Event page <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a class="pill-link" href="https://sunwayuniversity.edu.my/conference/mmm-2026/organising-committee" target="_blank" rel="noopener noreferrer">Organising committee <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div></li>
+        <li class="entry"><span class="title">Short Course in Applied Genomic Bioinformatics for AMR Surveillance<span class="badge muted">Trainer</span></span><span class="when">Jul 2025</span><span class="sub">University of Santo Tomas, Philippines &middot; Malaysia</span></li>
+        <li class="entry"><span class="title">MSU Health Science Week 2025<span class="badge muted">Organizer</span></span><span class="when">Jul 2025</span><span class="sub">Malaysia</span></li>
+        <li class="entry"><span class="title">Short Course in Introduction to Bioinformatics Data Management and Programming<span class="badge muted">Trainer &amp; Organizer</span></span><span class="when">May 2025</span><span class="sub">Malaysia</span></li>
+        <li class="entry"><span class="title">23rd iMPaCHS Symposium<span class="badge muted">Organizer</span></span><span class="when">Feb 2025</span><span class="sub">Management and Science University, Malaysia</span></li>
+      </ul>
+      <details class="more">
+        <summary><span class="closed">Show 6 earlier</span><span class="opened">Show fewer</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        <ul class="entries">
+          <li class="entry"><span class="title">Short Course in Genomic Analysis and Antimicrobial Resistance<span class="badge muted">Trainer</span></span><span class="when">Oct 2024</span><span class="sub">University of the Immaculate Conception, Philippines &middot; Malaysia</span></li>
+          <li class="entry"><span class="title">hAMRonization 2.0: A Virtual Workshop<span class="badge muted">Trainer &amp; Organizer</span></span><span class="when">Apr 2023</span><span class="sub">Japan (online)</span></li>
+          <li class="entry"><span class="title">hAMRonization: A Virtual Workshop<span class="badge muted">Trainer &amp; Organizer</span></span><span class="when">Apr 2022</span><span class="sub">Japan (online)</span></li>
+          <li class="entry"><span class="title">RNA-Seq NGS Data Analysis Workshop<span class="badge muted">Trainer &amp; Organizer</span></span><span class="when">Nov 2018</span><span class="sub">Malaysia</span></li>
+          <li class="entry"><span class="title">8th Regional Conference on Molecular Medicine (RCMM) &amp; 4th National Conference for Cancer Research<span class="badge muted">Organizer</span></span><span class="when">Sep 2018</span><span class="sub">Malaysia</span></li>
+          <li class="entry"><span class="title">7th Regional Conference on Molecular Medicine (RCMM) &amp; National Conference for Cancer Research<span class="badge muted">Organizer</span></span><span class="when">Nov 2017</span><span class="sub">Malaysia</span></li>
+        </ul>
+      </details>
+
+      <h3>Science communication</h3>
+      <ul class="entries">
+        <li class="entry"><span class="title">Democratising Bioinformatics! Breaking the Bioinformatics Barrier in AMR Genome Analysis<span class="badge gold">Blog article</span></span><span class="when">Nov 2024</span><span class="sub">Microbiology Society &middot; co-authored with the AMRColab team</span><div class="actions"><a class="pill-link" href="https://microbiologysociety.org/resource/democratising-bioinformatics-breaking-the-bioinformatics-barrier-in-amr-genome-analysis.html" target="_blank" rel="noopener noreferrer">Read article <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div></li>
+        <li class="entry"><span class="title">Galaxy@UMBI-HPC: The Answer to Omics Big Data<span class="badge gold">News article</span></span><span class="when">Jun 2018</span><span class="sub">UKM Medical Molecular Biology Institute (UMBI) &middot; with Hui-min Neoh</span><div class="actions"><a class="pill-link" href="https://www.ukm.my/umbi/news/galaxyumbi-hpc-the-answer-to-omics-big-data/" target="_blank" rel="noopener noreferrer">Read article <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div></li>
+        <li class="entry"><span class="title">High Performance Computing (HPC) at UMBI: Providing Researchers with Computing Power for Big Data Analytics<span class="badge gold">News article</span></span><span class="when">Aug 2017</span><span class="sub">UKM Medical Molecular Biology Institute (UMBI) &middot; with Zainal Azmir Ramli and A Rahman A Jamal</span><div class="actions"><a class="pill-link" href="https://www.ukm.my/umbi/news/high-performance-computing-hpc-umbi-providing-researchers-computing-power-big-data-analytics/" target="_blank" rel="noopener noreferrer">Read article <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div></li>
+      </ul>
+    </section>
+
+    <!-- ===================== SERVICE ===================== -->
+    <section id="service">
+      <h2>Service &amp; Memberships</h2>
+
+      <h3>Editorial &amp; peer review</h3>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/srep.png" alt="" width="52" height="52"><span class="title">Editorial Board Member, <i>Scientific Reports</i></span><span class="when">Jul 2026 – Present</span><span class="sub">Springer Nature</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/sage.png" alt="" width="52" height="52"><span class="title">Editorial Review Board Member, <i>Bioinformatics and Biology Insights</i></span><span class="when">Jun 2026 – Present</span><span class="sub">SAGE Publications</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/ijms.png" alt="" width="52" height="52"><span class="title">Peer Reviewer, <i>International Journal of Molecular Sciences</i></span><span class="when">2026</span><span class="sub">MDPI</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/bmc.png" alt="" width="52" height="52"><span class="title">Peer Reviewer, <i>BMC Genomic Data</i></span><span class="when">2026</span><span class="sub">BMC, Springer Nature</span></li>
+      </ul>
+
+      <h3>Examination</h3>
+      <ul class="entries">
+        <li class="entry"><span class="title">Chairperson, PhD Proposal Defence</span><span class="when">Jul 2026</span><span class="sub">Sunway University, Malaysia</span></li>
+        <li class="entry"><span class="title">Internal Examiner, Master's Proposal Defence</span><span class="when">Nov 2025</span><span class="sub">Management and Science University, Malaysia</span></li>
+        <li class="entry"><span class="title">Internal Examiner, Final Year Project Proposal Presentations</span><span class="when">May 2025</span><span class="sub">Management and Science University, Malaysia</span></li>
+        <li class="entry"><span class="title">Internal Examiner, PhD Proposal Defence</span><span class="when">Mar 2025</span><span class="sub">Management and Science University, Malaysia</span></li>
+      </ul>
+
+      <h3>Memberships</h3>
+      <ul class="entries">
+        <li class="entry with-logo"><img class="logo" src="logos/asm-us.png" alt="" width="52" height="52"><span class="title">American Society for Microbiology (ASM)</span><span class="sub">United States</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/iscb.png" alt="" width="52" height="52"><span class="title">International Society for Computational Biology (ISCB)</span><span class="sub">United States</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/jshg.png" alt="" width="52" height="52"><span class="title">Japan Society of Human Genetics (JSHG)</span><span class="sub">Japan</span></li>
+        <li class="entry with-logo"><span class="logo logo-icon"><i class="fa-solid fa-dna" aria-hidden="true"></i></span><span class="title">Malaysian Society of Bioinformatics and Computational Biology (MaSBiC)</span><span class="sub">Malaysia</span></li>
+        <li class="entry with-logo"><img class="logo" src="logos/akademi.png" alt="" width="52" height="52"><span class="title">Young Scientist Network, Academy of Sciences Malaysia (YSN-ASM)</span><span class="sub">Malaysia</span></li>
+      </ul>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="cards contact-cards">
+        <div class="card skill contact" data-u="agnayaim" data-d="ym.ude.yawnus">
+          <span class="icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span>
+          <div><h4>Work email</h4><span class="email-slot"><button type="button" class="reveal"><i class="fa-regular fa-eye" aria-hidden="true"></i> Show email</button></span></div>
+          <button type="button" class="copy" aria-label="Copy work email" title="Copy" hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+        </div>
+        <div class="card skill contact" data-u="gnayaimgna" data-d="moc.liamg">
+          <span class="icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+          <div><h4>Personal email</h4><span class="email-slot"><button type="button" class="reveal"><i class="fa-regular fa-eye" aria-hidden="true"></i> Show email</button></span></div>
+          <button type="button" class="copy" aria-label="Copy personal email" title="Copy" hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Mia Yang Ang &middot; Last updated November 2026
+    </footer>
+  </main>
+</div>
+
+<button type="button" class="to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+<script>
+  const sections = document.querySelectorAll('main section[id]');
+
+  // Fade each section in as it scrolls into view.
+  const reveal = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); }
+    }
+  }, { threshold: 0.05 });
+  sections.forEach(s => reveal.observe(s));
+
+  // Highlight the section currently in view in the navigation.
+  const nav = document.querySelector('.toc');
+  const links = [...nav.querySelectorAll('a')];
+  const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const spy = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const link = byId.get(e.target.id);
+      links.forEach(a => a.classList.toggle('active', a === link));
+      if (nav.scrollWidth > nav.clientWidth) {
+        nav.scrollTo({ left: link.offsetLeft - nav.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
+      }
+    }
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  // Research topics: show the hovered or tapped topic's description in the panel,
+  // and go back to the default hint when the pointer moves away. All descriptions
+  // share one spot in the panel (only one visible at a time), so the panel always
+  // has the height of the longest one and the page below never jumps.
+  const panel = document.querySelector('.topic-panel');
+  const topics = document.querySelectorAll('.topic');
+  const states = new Map([[null, panel.querySelector('.topic-state')]]);
+  topics.forEach(t => {
+    const d = document.createElement('div');
+    d.className = 'topic-state';
+    d.innerHTML = '<span class="icon"><i aria-hidden="true"></i></span><div><b></b><p></p></div>';
+    d.querySelector('i').className = 'fa-solid ' + t.dataset.icon;
+    d.querySelector('b').textContent = t.textContent;
+    d.querySelector('p').textContent = t.dataset.desc;
+    panel.append(d); states.set(t, d);
+  });
+  let current = null, timer;
+  const setPanel = t => {
+    if (current === t) return;
+    current = t;
+    topics.forEach(x => x.classList.toggle('active', x === t));
+    states.forEach((el, key) => el.classList.toggle('active', key === t));
+  };
+  const show = t => { clearTimeout(timer); setPanel(t); };
+  const resetSoon = () => { clearTimeout(timer); timer = setTimeout(() => setPanel(null), 150); };
+  topics.forEach(t => {
+    ['mouseenter', 'focus', 'click'].forEach(ev => t.addEventListener(ev, () => show(t)));
+    ['mouseleave', 'blur'].forEach(ev => t.addEventListener(ev, resetSoon));
+  });
+  document.addEventListener('pointerdown', e => { if (!e.target.closest('.topic')) resetSoon(); });
+
+  // When jumping to a section from the menu, show it straight away.
+  links.forEach(a => a.addEventListener('click', () => {
+    document.getElementById(a.getAttribute('href').slice(1))?.classList.add('in');
+  }));
+
+  // Back-to-top button: appears after scrolling down a little.
+  const toTop = document.querySelector('.to-top');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 600), { passive: true });
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+
+  // Contact: the addresses are stored back-to-front and without the "@", so spam
+  // bots reading the page can't pick them up. "Show email" puts them together.
+  const rev = s => [...s].reverse().join('');
+  const revealEmail = card => {
+    if (card.dataset.shown) return;
+    const addr = rev(card.dataset.u) + '@' + rev(card.dataset.d);
+    const a = Object.assign(document.createElement('a'), { href: 'mailto:' + addr, textContent: addr });
+    card.querySelector('.email-slot').replaceChildren(a);
+    const copy = card.querySelector('.copy');
+    copy.dataset.copy = addr; copy.hidden = false;
+    card.dataset.shown = '1';
+  };
+  document.querySelectorAll('.contact').forEach(c => c.querySelector('.reveal').addEventListener('click', () => revealEmail(c)));
+
+  // Contact: copy an email address to the clipboard.
+  document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); }
+    catch (e) {
+      const t = Object.assign(document.createElement('textarea'), { value: b.dataset.copy });
+      document.body.append(t); t.select();
+      const ok = document.execCommand('copy'); t.remove();
+      if (!ok) return;
+    }
+    const i = b.querySelector('i'), old = i.className;
+    b.classList.add('done'); i.className = 'fa-solid fa-check';
+    setTimeout(() => { b.classList.remove('done'); i.className = old; }, 1500);
+  }));
+
+  // Print / Save as PDF: show everything.
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('details').forEach(d => d.open = true);
+    sections.forEach(s => s.classList.add('in'));
+    document.querySelectorAll('.contact').forEach(revealEmail);
+  });
+</script>
+</body>
+</html>
