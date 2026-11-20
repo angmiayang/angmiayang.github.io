@@ -209,8 +209,10 @@
     transition: transform .25s ease;
   }
   .card:hover .card-logo { transform: scale(1.08); }
-  .contact-cards { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
-  @media (max-width: 420px) { .contact-cards { grid-template-columns: 1fr; } }
+  .email-list { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .email-list[hidden] { display: none; }
+  .email-list li { display: flex; align-items: center; gap: 10px; }
+  .email-list .copy { margin-left: 0; width: 30px; height: 30px; font-size: .85rem; }
   .contact > div { min-width: 0; }
   .contact h4 { margin-bottom: 2px; }
   .contact a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
@@ -220,7 +222,6 @@
     border: 1px solid var(--blue-line); background: #fff; color: var(--blue); cursor: pointer;
     display: grid; place-items: center; transition: background .2s, border-color .2s;
   }
-  .copy[hidden] { display: none; }
   .copy:hover { background: var(--blue-soft); border-color: var(--blue); }
   .reveal {
     display: inline-flex; align-items: center; gap: 6px; margin-top: 2px;
@@ -837,16 +838,15 @@
     <!-- ===================== CONTACT ===================== -->
     <section id="contact">
       <h2>Contact</h2>
-      <div class="cards contact-cards">
-        <div class="card skill contact" data-u="agnayaim" data-d="ym.ude.yawnus">
-          <span class="icon"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span>
-          <div><h4>Work email</h4><span class="email-slot"><button type="button" class="reveal"><i class="fa-regular fa-eye" aria-hidden="true"></i> Show email</button></span></div>
-          <button type="button" class="copy" aria-label="Copy work email" title="Copy" hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
-        </div>
-        <div class="card skill contact" data-u="gnayaimgna" data-d="moc.liamg">
-          <span class="icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-          <div><h4>Personal email</h4><span class="email-slot"><button type="button" class="reveal"><i class="fa-regular fa-eye" aria-hidden="true"></i> Show email</button></span></div>
-          <button type="button" class="copy" aria-label="Copy personal email" title="Copy" hidden><i class="fa-regular fa-copy" aria-hidden="true"></i></button>
+      <div class="card skill contact">
+        <span class="icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+        <div class="email-body">
+          <h4>Email</h4>
+          <button type="button" class="reveal"><i class="fa-regular fa-eye" aria-hidden="true"></i> Show email</button>
+          <ul class="email-list" hidden>
+            <li data-u="agnayaim" data-d="ym.ude.yawnus"><a></a><button type="button" class="copy" aria-label="Copy email address" title="Copy"><i class="fa-regular fa-copy" aria-hidden="true"></i></button></li>
+            <li data-u="gnayaimgna" data-d="moc.liamg"><a></a><button type="button" class="copy" aria-label="Copy email address" title="Copy"><i class="fa-regular fa-copy" aria-hidden="true"></i></button></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -931,16 +931,20 @@
   // Contact: the addresses are stored back-to-front and without the "@", so spam
   // bots reading the page can't pick them up. "Show email" puts them together.
   const rev = s => [...s].reverse().join('');
-  const revealEmail = card => {
-    if (card.dataset.shown) return;
-    const addr = rev(card.dataset.u) + '@' + rev(card.dataset.d);
-    const a = Object.assign(document.createElement('a'), { href: 'mailto:' + addr, textContent: addr });
-    card.querySelector('.email-slot').replaceChildren(a);
-    const copy = card.querySelector('.copy');
-    copy.dataset.copy = addr; copy.hidden = false;
-    card.dataset.shown = '1';
+  const contact = document.querySelector('.contact');
+  const revealEmails = () => {
+    if (contact.dataset.shown) return;
+    contact.querySelectorAll('.email-list li').forEach(li => {
+      const addr = rev(li.dataset.u) + '@' + rev(li.dataset.d);
+      const a = li.querySelector('a');
+      a.href = 'mailto:' + addr; a.textContent = addr;
+      li.querySelector('.copy').dataset.copy = addr;
+    });
+    contact.querySelector('.reveal').remove();
+    contact.querySelector('.email-list').hidden = false;
+    contact.dataset.shown = '1';
   };
-  document.querySelectorAll('.contact').forEach(c => c.querySelector('.reveal').addEventListener('click', () => revealEmail(c)));
+  contact.querySelector('.reveal').addEventListener('click', revealEmails);
 
   // Contact: copy an email address to the clipboard.
   document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
@@ -960,7 +964,7 @@
   window.addEventListener('beforeprint', () => {
     document.querySelectorAll('details').forEach(d => d.open = true);
     sections.forEach(s => s.classList.add('in'));
-    document.querySelectorAll('.contact').forEach(revealEmail);
+    revealEmails();
   });
 </script>
 </body>
