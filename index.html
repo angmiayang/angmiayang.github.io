@@ -874,17 +874,25 @@
   const nav = document.querySelector('.toc');
   const links = [...nav.querySelectorAll('a')];
   const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
-  const spy = new IntersectionObserver(entries => {
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      const link = byId.get(e.target.id);
-      links.forEach(a => a.classList.toggle('active', a === link));
-      if (nav.scrollWidth > nav.clientWidth) {
-        nav.scrollTo({ left: link.offsetLeft - nav.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
-      }
+  // The current section is the last one whose top has passed 40% of the window
+  // height; at the very bottom of the page it is always the last section, which
+  // is too short to ever reach that line by scrolling.
+  const sectionList = [...sections];
+  const updateActive = () => {
+    const line = innerHeight * 0.4;
+    let current = sectionList[0];
+    for (const s of sectionList) if (s.getBoundingClientRect().top <= line) current = s;
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) current = sectionList[sectionList.length - 1];
+    const link = byId.get(current.id);
+    if (link.classList.contains('active')) return;
+    links.forEach(a => a.classList.toggle('active', a === link));
+    if (nav.scrollWidth > nav.clientWidth) {
+      nav.scrollTo({ left: link.offsetLeft - nav.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
     }
-  }, { rootMargin: '-35% 0px -60% 0px' });
-  sections.forEach(s => spy.observe(s));
+  };
+  addEventListener('scroll', updateActive, { passive: true });
+  addEventListener('resize', updateActive);
+  updateActive();
 
   // Research topics: show the hovered or tapped topic's description in the panel,
   // and go back to the default hint when the pointer moves away. All descriptions
