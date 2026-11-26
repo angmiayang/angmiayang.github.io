@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://angmiayang.github.io/sitemap.xml
